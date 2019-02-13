@@ -1,8 +1,10 @@
 <?php
 
 
+namespace App\dispatcher;
 
-include_once 'Event.php';
+use App\dispatcher\Event;
+
 
 class EventDispatcher
 {
@@ -11,7 +13,6 @@ class EventDispatcher
      * @var array
      */
     protected $listeners = [];
-    protected $weightplan =[10];
 
     /**
      * @param $eventName
@@ -21,8 +22,10 @@ class EventDispatcher
     public function dispatch($eventName, Event $event)
     {
 
-        ksort($this->listeners[$eventName]);
+        krsort($this->listeners[$eventName]);
+        //checking answer
         print_r($this->listeners);
+        
         if ($listeners = $this->listeners[$eventName]) {
             foreach ($listeners as $listener) {
                 $listener($eventName, $event);

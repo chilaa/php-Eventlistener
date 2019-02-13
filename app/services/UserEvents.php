@@ -2,9 +2,9 @@
 
 
 
+namespace App\services;
+use App\dispatcher\Event;
 
-
-//include_once 'dispatcher/Event.php';
 
 
 class UserEvents extends Event
